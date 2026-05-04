@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TextLens — Words into Worlds</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <div class="logo-line">
+      <span class="input-icon">✦</span>
+    </div>
+    <h1>Ai<span> - Image Generator</span></h1>
+    <p class="tagline">Convert Text &mdash; To Image</p>
+  </header>
+
+  <!-- Input -->
+  <section class="input-section">
+    <div class="input-wrapper">
+      <span class="input-icon">✦</span>
+      <input
+        type="text"
+        id="prompt-input"
+        placeholder="e.g. Bungalow near Sea-shore..."
+        maxlength="500"
+        autocomplete="off"
+      />
+      <button class="generate-btn" id="generate-btn">Generate →</button>
+    </div>
+
+    <div class="suggestions">
+      <div class="suggestion-label">Try these</div>
+      <span class="chip" data-prompt="A Bridge of Vehicles">Bridge of Transport</span>
+      <span class="chip" data-prompt="Sports car">Sports car</span>
+      <span class="chip" data-prompt="Boat in a Lake">Boat in a Lake</span>
+      
+    </div>
+  </section>
+
+  <!-- Output -->
+  <section class="output-section">
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+      <div class="spinner-ring"></div>
+      <div class="loader-text">Generating</div>
+      <div class="loader-sub">The AI is painting your vision. This usually takes 10–30 seconds.</div>
+    </div>
+
+    <!-- Error -->
+    <div class="error-box" id="error-box">
+      <span class="error-icon">⚠</span>
+      <div class="error-text" id="error-text">Something went wrong.</div>
+    </div>
+
+    <!-- Result Card -->
+    <div class="result-card" id="result-card">
+      <div class="result-header">
+        <div>
+          <div class="result-prompt-label">Generated for</div>
+          <div class="result-prompt-text" id="result-prompt-text"></div>
+        </div>
+        <div class="result-badge">AI Generated</div>
+      </div>
+      <div class="image-frame">
+        <img id="result-image" src="" alt="Generated image" crossorigin="anonymous"/>
+      </div>
+      <div class="result-footer">
+        <div class="result-info">Powered by xAI Grok</div>
+        <div class="action-buttons">
+          <button class="btn-secondary" id="regenerate-btn">↻ Regenerate</button>
+          <button class="btn-download" id="download-btn">↓ Download</button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
